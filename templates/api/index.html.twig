@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users list{% endblock %}
+
+{% block body %}
+<h1>Users</h1>
+
+<div class="users">
+    {% for user in users.results %}
+        <div class="user">
+            <div class="top">
+                <div>
+                    <h2>{{ user.name.title }} {{ user.name.last }} {{ user.name.first }}</h2>
+                    <p class="txt-light"><i class="ri-mail-line"></i>&nbsp;{{ user.email }}</p>
+                </div>
+                <div>
+                    <img src="{{ user.picture.large}}" alt="">
+                </div>
+            </div>
+            <div class="details">
+                <div>
+                    <i class="ri-map-pin-2-line"></i>&nbsp;{{ user.location.street.number }} {{ user.location.street.name }}<br>
+                    <p>{{ user.location.postcode }} {{ user.location.city }}</p>
+                    <p>{{ user.location.country }}</p>
+                </div>
+                <div class="data">
+                    <form action="{{ path('membre_add')}}" method="POST">
+                        <input type="hidden" name="title" value="{{ user.name.title }}">
+                        <input type="hidden" name="last" value="{{ user.name.last }}">
+                        <input type="hidden" name="first" value="{{ user.name.first }}">
+                        <input type="hidden" name="email" value="{{ user.email }}">
+                        <input type="hidden" name="phone" value="{{ user.phone }}">
+                        <input type="hidden" name="picture" value="{{ user.picture.large }}">
+                        <input type="hidden" name="streetnumber" value="{{ user.location.street.number }}">
+                        <input type="hidden" name="streetname" value="{{ user.location.street.name }}">
+                        <input type="hidden" name="postcode" value="{{ user.location.postcode }}">
+                        <input type="hidden" name="city" value="{{ user.location.city }}">
+                        <input type="hidden" name="country" value="{{ user.location.country }}">
+                        <input type="hidden" name="uuid" value="{{ user.login.uuid }}">
+                        <button type="submit">
+                            <i class="ri-folder-add-line plus"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

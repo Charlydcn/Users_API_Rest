@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+main {
+    min-height: 100vh;
+    max-width: 100vw;
+    padding: 20px;
+}
+
+.users {
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 27px;
+    font-size: .8rem;
+    box-shadow: rgba(0,0,0,.45) 0px 15px 20px -20px;
+    transition: transform .5s;
+}
+
+.user h2 {
+    font-size: 1.2rem;
+}
+
+.user img {
+    width: 80px;
+    border-radius: 50%;
+    filter: grayscale(1);
+    transition: filter .5s;
+}
+
+.user:hover img {
+    filter:grayscale(0);
+}
+
+.user:hover {
+    transform: translateY(-5px);
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 0 0 16px 16px;
+}
+
+.txt-light {
+    color: #666666;
+}
+
+.data form button {
+    background-color: unset;
+    border:none;
+    cursor:pointer;
+}
+
+.data form button i {
+    color: #c80c54;
+    font-size: 1.4rem;
+}

@@ -18,6 +18,11 @@ framework:
     php_errors:
         log: true
 
+    http_client:
+        scoped_clients:
+            jph:
+                base_uri: https://randomuser.me/api/
+
 when@test:
     framework:
         test: true
